@@ -81,14 +81,15 @@ NetworkTables.addKeyListener('/SmartDashboard/autonomous/modes', (key, value) =>
 });
 
 // Load list of prewritten autonomous modes
-NetworkTables.addKeyListener('/SmartDashboard/autonomous/selected', (key, value) => {
-    ui.autoSelect.value = value;
-});
-
+NetworkTables.addKeyListener('/SmartDashboard/autonomous/selected',
+    (key, value) => {
+        ui.autoSelect.value = value;
+    }
+);
 // The rest of the doc is listeners for UI elements being clicked on
 ui.example.button.onclick = function() {
-    // Set NetworkTables values to the opposite of whether button has active class.
-    NetworkTables.putValue('/SmartDashboard/example_variable', this.className != 'active');
+    // Set NetworkTables values opposite of whether button has on class.
+    NetworkTables.putValue('/SmartDashboard/example', this.className != 'on');
 };
 // Reset gyro value to 0 on click
 ui.gyro.container.onclick = function() {
